@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:b="http://bootsfaces.net/ui"
+                template="/masterLayout.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="Echo Demo"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <b:panel title="Echo Demo Example">
+            <b:panelGrid columns="2">
+                <b:label value="Enter your name:"/>
+                <b:inputText id="username" value="#{userBean.userName}">
+                    <f:ajax render="myform:outputPanel" event="keyup" />
+                </b:inputText>
+
+                <b:label value="Enter your password:"/>
+                <b:inputText id="password" value="#{userBean.password}"/>
+            </b:panelGrid>
+            <f:facet name="footer">
+                <b:commandButton value="Submit" ajax="false" action="#{userBean.onSubmitAction}"/>
+            </f:facet>
+        </b:panel>
+        <b:panel id="outputPanel">
+            <h3><h:outputText value="#{userBean.userName}"/></h3>
+        </b:panel>
+    </ui:define>
+</ui:composition>

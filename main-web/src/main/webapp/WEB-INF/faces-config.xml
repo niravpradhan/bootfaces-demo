@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+
+    <lifecycle>
+        <phase-listener>
+            common.GlobalPhaseListener
+        </phase-listener>
+    </lifecycle>
+
+    <navigation-rule>
+        <from-view-id>/navigation/example1/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>done</from-outcome>
+            <if>#{theBean1.rnd gt 50}</if>
+            <to-view-id>/navigation/example1/success.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>done</from-outcome>
+            <if>#{theBean1.rnd le 50}</if>
+            <to-view-id>/navigation/example1/failure.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- FIRE (SUBMIT) A POST REQUEST VIA REDIRECT MECHANISM AND NAVIGATE TO THE VIEW ID COMPUTED FROM THE SPECIFIED OUTCOME -->
+    <navigation-rule>
+        <from-view-id>/navigation/example1/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>doneredirect</from-outcome>
+            <if>#{theBean1.rnd gt 50}</if>
+            <to-view-id>/navigation/example1/success.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>doneredirect</from-outcome>
+            <if>#{theBean1.rnd le 50}</if>
+            <to-view-id>/navigation/example1/failure.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>fr</supported-locale>
+            <supported-locale>ru</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>Labels</base-name>
+            <var>labels</var>
+        </resource-bundle>
+        <el-resolver>jsf_scopes.custom_scoped.with_navigation_handler.CustomScopeResolver</el-resolver>
+        <navigation-handler>jsf_scopes.custom_scoped.with_navigation_handler.CustomScopeNavigationHandler</navigation-handler>
+    </application>
+  
+</faces-config>

@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout2.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF Fundamentals"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>Application name: c1_s5_v5.2_1</strong>
+        <hr/>Communication between managed beans using the application/session map<hr/>
+
+        <h:form>
+            Put in the application map the 'Rafael Nadal' text [PRESS THIS FIRST]:
+            <h:commandButton value="Set 'Rafael Nadal' into the application map"
+                             action="#{playersBeanSet.playerSetAction()}"/>
+        </h:form>
+        <h:form>
+            Get from the application map the 'Rafael Nadal' text [PRESS THIS SECOND]:
+            <h:commandButton value="Get 'Rafael Nadal' from the application map"
+                             action="#{playersBeanGet.playerGetAction()}"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

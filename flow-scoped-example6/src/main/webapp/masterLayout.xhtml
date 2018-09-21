@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui" xmlns:o="http://omnifaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:insert name="metaData">
+    <o:enableRestorableView />
+</ui:insert>
+<h:head>
+    <title><ui:insert name="title">#{labels.PAGE_TITLE_TEXT}</ui:insert></title>
+    <meta name="author" content="The Author"></meta>
+    <ui:insert name="pageResources"></ui:insert>
+</h:head>
+<h:body style="padding: 60px;">
+    <h:form id="myform">
+        <b:growl placementFrom="top" show-detail="false"
+                 global-only="false"
+                 show-summary="true" allow-dismiss="true"
+                 animation-enter="animated bounceInDown"
+                 animation-exit="animated flipOutX"
+                 escape="true"/>
+        <b:navBar brand="#{labels.PROJECT_NAME}" brandHref="#" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navCommandLink value="#{labels.HOME}" action="/index" immediate="true"/>
+                <!--<b:dropMenu value="#{labels.CHAPTER_5}">
+                    <b:navCommandLink value="#{labels.PAYMENT_FORM}" action="/chapter_5/payment_form"  immediate="true" />
+                </b:dropMenu>
+                <b:dropMenu value="Chapter 8">
+                    <b:navCommandLink value="Echo Demo" action="/chapter_8/ajax_demo"  immediate="true" />
+                </b:dropMenu>
+                <b:dropMenu value="Chapter 9">
+                    <b:navCommandLink value="Users List" action="/chapter_9/users_list"  immediate="true" />
+                </b:dropMenu> -->
+                <!--<b:dropMenu value="JSF Scopes">
+                    <b:navCommandLink value="RequestScoped" action="/jsf_scopes/request_scoped/index"  immediate="true" />
+                    <b:navCommandLink value="ViewScoped" action="/jsf_scopes/view_scoped/index"  immediate="true" />
+                    <b:navCommandLink value="SessionScoped" action="/jsf_scopes/session_scoped/index"  immediate="true" />
+                    <b:navCommandLink value="ApplicationScoped" action="/jsf_scopes/application_scoped/index"  immediate="true" />
+                    <b:dropMenu value="JSF-CustomScoped">
+                        <b:navCommandLink value="With ELResolver" action="/jsf_scopes/custom_scoped/with_elresolver/index"  immediate="true" />
+                        <b:navCommandLink value="With NavigationHandler" action="/jsf_scopes/custom_scoped/with_navigation_handler/index"  immediate="true" />
+                    </b:dropMenu>
+                    <b:dropMenu value="JSF-NoneScoped">
+                        <b:navCommandLink value="In EL Expression" action="/jsf_scopes/none_scoped/in_el_expression/index"  immediate="true" />
+                        <b:navCommandLink value="In Other Beans" action="/jsf_scopes/none_scoped/in_other_beans/index"  immediate="true" />
+                    </b:dropMenu>
+                    <b:navCommandLink value="ConversationScoped" action="/jsf_scopes/conversation_scoped/index"  immediate="true" />
+                    <b:dropMenu value="CDI-FlowScoped">
+                        <b:navCommandLink value="Example1" action="/jsf_scopes/flow_scoped/example1/index"  immediate="true" />
+                    </b:dropMenu>
+                </b:dropMenu> -->
+            </b:navbarLinks>
+
+            <b:selectOneMenu value="#{localeBean.locale}" styleClass="navbar-form navbar-right" valueChangeListener="#{localeBean.onLocaleChange}" onchange="submit();" immediate="true">
+                <f:selectItem itemLabel="#{labels.ENGLISH_TEXT}" itemValue="en"/>
+                <f:selectItem itemLabel="#{labels.FRENCH_TEXT}" itemValue="fr"/>
+                <f:selectItem itemLabel="#{labels.RUSSIAN_TEXT}" itemValue="ru"/>
+            </b:selectOneMenu>
+        </b:navBar>
+        <b:container>
+            <b:jumbotron>
+                <ui:insert name="content"></ui:insert>
+            </b:jumbotron>
+        </b:container>
+        <b:container>
+            <hr/>
+            <p>© Company 2018</p>
+        </b:container>
+    </h:form>
+</h:body>
+</html>

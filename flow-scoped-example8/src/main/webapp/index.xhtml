@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout2.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF scopes and navigation"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>Application name: c2_s1_v1.10_8</strong>
+        <hr/>CDI flow scope<hr/>
+
+        <h1><b>In flow ? #{null != facesContext.application.flowHandler.currentFlow}</b></h1><br/>
+        <h2><b>Flow Id: #{facesContext.application.flowHandler.currentFlow.id}</b></h2><br/>
+
+        REGISTER NEW PLAYER
+        <h:form prependId="false">
+            <h:inputHidden id="tournamentNameId" value="Roland Garros"/>
+            <h:inputHidden id="tournamentPlaceId" value="France"/>
+            <h:commandButton value="Start Registration (Roland Garros)" action="registration"/>
+        </h:form>
+        <!--
+             <h:form prependId="false">
+                 <h:inputHidden id="tournamentNameId" value="Wimbledon"/>
+                 <h:inputHidden id="tournamentPlaceId" value="England"/>
+                 <h:commandButton value="Start Registration (Wimbledon)" action="registration"/>
+             </h:form>
+             <h:form prependId="false">
+                 <h:inputHidden id="tournamentNameId" value="US Open"/>
+                 <h:inputHidden id="tournamentPlaceId" value="SUA"/>
+                 <h:commandButton value="Start Registration (US Open)" action="registration"/>
+             </h:form>
+
+             <h:form prependId="false">
+                 <h:inputHidden id="tournamentNameId" value="Australian Open"/>
+                 <h:inputHidden id="tournamentPlaceId" value="Australia"/>
+                 <h:commandButton value="Start Registration (Australian Open)" action="registration"/>
+             </h:form>
+        -->
+    </ui:define>
+</ui:composition>

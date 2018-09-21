@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout2.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF Fundamentals"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>JSF Fundamentals</strong>
+        <hr/>Passing attributes via the <code>&lt;f:attribute/&gt;</code><hr/>
+
+        <h:form>
+            Click to send name, 'Rafael' surname, 'Nadal', with <code>&lt;f:attribute&gt;</code>:
+            <h:commandButton actionListener="#{playersBean5.parametersAction}">
+                <f:attribute name="value" value="Send Rafael Nadal" />
+                <f:attribute id="playerName" name="playerNameAttr" value="Rafael"/>
+                <f:attribute id="playerSurname" name="playerSurnameAttr" value="Nadal"/>
+            </h:commandButton>
+        </h:form>
+    </ui:define>
+</ui:composition>

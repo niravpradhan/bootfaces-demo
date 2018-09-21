@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout2.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF Fundamentals"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>JSF Fundamentals</strong>
+        <hr/>Passing and getting parameters<hr/>
+
+        FIRST, PRESS THIS TO INITIALIZE THE SESSION BEAN:
+        <h:form>
+            Name: <h:inputText value="#{playersBean9.playerName}"/>
+            Surname: <h:inputText value="#{playersBean9.playerSurname}"/>
+            <h:commandButton value="Set player name and surname" action="index"/>
+        </h:form>
+        <br/>
+        SECOND, PRESS THIS TO FIND THE SESSION BEAN IN THE REQUEST BEAN:
+        <h:form>
+            <h:commandButton value="View Profile In Log" action="#{profileBean.viewProfile()}"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

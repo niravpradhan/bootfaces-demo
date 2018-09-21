@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout2.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF scopes and navigation"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>Application name: c2_s1_v1.11_1</strong>
+        <hr/>CDI dependent scope<hr/>
+
+        <h:form>
+            <h:commandButton value="Count" action="#{countBean.increaseCount()}"/>
+        </h:form>
+        Current value: #{countBean.count}
+    </ui:define>
+</ui:composition>

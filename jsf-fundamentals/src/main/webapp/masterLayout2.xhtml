@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui" xmlns:o="http://omnifaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+
+<o:enableRestorableView />
+
+<ui:insert name="metadata">
+</ui:insert>
+
+
+<h:head>
+    <title><ui:insert name="title">#{labels.PAGE_TITLE_TEXT}</ui:insert></title>
+    <meta name="author" content="The Author"></meta>
+    <ui:insert name="pageResources"></ui:insert>
+</h:head>
+<h:body style="padding: 60px;">
+    <h:form id="myform">
+        <b:growl placementFrom="top" show-detail="false"
+                 global-only="false"
+                 show-summary="true" allow-dismiss="true"
+                 animation-enter="animated bounceInDown"
+                 animation-exit="animated flipOutX"
+                 escape="true"/>
+        <b:navBar brandHref="#" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink outcome="/index">
+                    <b:image library="images" name="jsf_logo.png" width="75px" height="25px"/>
+                </b:navLink>
+                <b:dropMenu value="Sections">
+                    <b:dropMenu value="Section 1">
+                        <b:navLink value="Example-1" outcome="/section_1/example_1/index"/>
+                    </b:dropMenu>
+                    <b:dropMenu value="Section 2">
+                        <b:navLink value="Example-1" outcome="/section_2/example_1/index"/>
+                        <b:navLink value="Counter Excample" outcome="/section_2/example_1/counter"/>
+                    </b:dropMenu>
+                    <b:dropMenu value="Section 3">
+                        <b:navLink value="Example-1" outcome="/section_3/example_1/index"/>
+                        <b:navLink value="Example-2" outcome="/section_3/example_2/index"/>
+                        <b:navLink value="Example-3" outcome="/section_3/example_3/index"/>
+                        <b:navLink value="Example-4" outcome="/section_3/example_4/index"/>
+                        <b:navLink value="Example-5" outcome="/section_3/example_5/index"/>
+                    </b:dropMenu>
+                    <b:dropMenu value="Section 4">
+                        <b:navLink value="Example-1" outcome="/section_4/example_1/index"/>
+                        <b:navLink value="Example-2" outcome="/section_4/example_2/index"/>
+                        <b:navLink value="Example-3" outcome="/section_4/example_3/index"/>
+                        <b:navLink value="Example-4" outcome="/section_4/example_4/index"/>
+                    </b:dropMenu>
+                    <b:dropMenu value="Section 5">
+                        <b:navLink value="Example-1" outcome="/section_5/example_1/index"/>
+                        <b:navLink value="Example-2" outcome="/section_5/example_2/index"/>
+                    </b:dropMenu>
+                </b:dropMenu>
+            </b:navbarLinks>
+
+            <b:selectOneMenu value="#{localeBean.locale}" styleClass="navbar-form navbar-right" valueChangeListener="#{localeBean.onLocaleChange}" onchange="submit();" immediate="true">
+                <f:selectItem itemLabel="#{labels.ENGLISH_TEXT}" itemValue="en"/>
+                <f:selectItem itemLabel="#{labels.FRENCH_TEXT}" itemValue="fr"/>
+                <f:selectItem itemLabel="#{labels.RUSSIAN_TEXT}" itemValue="ru"/>
+            </b:selectOneMenu>
+        </b:navBar>
+    </h:form>
+    <b:container>
+        <b:jumbotron>
+            <ui:insert name="content"></ui:insert>
+        </b:jumbotron>
+    </b:container>
+    <b:container>
+        <hr/>
+        <p>© Company 2018</p>
+    </b:container>
+</h:body>
+</html>

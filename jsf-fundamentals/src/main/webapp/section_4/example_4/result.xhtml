@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF Fundamentals"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>Application name: c1_s4_v4.4_1</strong>
+        <hr/>Sending data through hidden fields<hr/>
+
+        Name:<h:outputText value="#{playersBean8.playerName}"/>
+        Surname:<h:outputText value="#{playersBean8.playerSurname}"/><br/>
+    </ui:define>
+</ui:composition>

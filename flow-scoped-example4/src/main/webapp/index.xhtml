@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF scopes and navigation"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>Application name: c2_s1_v1.10_4</strong>
+        <hr/>CDI flow scope<hr/>
+
+        <h1><b>In flow ? #{null != facesContext.application.flowHandler.currentFlow}</b></h1><br/>
+        <h2><b>Flow Id: #{facesContext.application.flowHandler.currentFlow.id}</b></h2><br/>
+
+        REGISTER NEW PLAYER
+        <h:commandButton value="Start Registration" action="registration"/>
+    </ui:define>
+</ui:composition>

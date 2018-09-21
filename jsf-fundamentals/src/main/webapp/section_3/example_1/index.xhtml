@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF Fundamentals"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>JSF Fundamentals</strong>
+        <hr/>Context, request and view parameters<hr/>
+
+        Get context parameter in JSF page (method 1):
+        <h:outputText value="#{initParam['number.one.in.ATP']}" />
+        <hr/>
+        Get context parameter in JSF page (method 2):
+        <h:outputText value="#{facesContext.externalContext.initParameterMap['number.one.in.ATP']}" />
+        <hr/>
+        Get context parameter programmatically:
+        <h:outputText value="#{contextParamBean.numberone}"/>
+        <hr/>
+    </ui:define>
+</ui:composition>

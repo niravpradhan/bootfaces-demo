@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/masterLayout2.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="JSF scopes and navigation"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <strong>Application name: c2_s1_v1.9_1</strong>
+        <hr/>CDI  conversation scope<hr/>
+
+        Just generated:
+        <h:outputText value="#{playersBean.player}"/><br/>
+
+        List of generated players:
+        <h:dataTable var="t" value="#{playersBean.players}">
+            <h:column>
+                <h:outputText value="#{t}"/>
+            </h:column>
+        </h:dataTable>
+        <h:form>
+            <h:commandButton value="Start Conversation"
+                             style="background-color: #00cc00;"
+                             actionListener="#{playersBean.startPlayerRnd()}"
+                             action="index.xhtml"/>
+
+            <h:commandButton value="Get Players In Same View"
+                             actionListener="#{playersBean.newPlayer()}"/>
+
+            <h:commandButton value="Get Players With Page Forward"
+                             actionListener="#{playersBean.newPlayer()}"
+                             action="index.xhtml"/>
+
+            <h:commandButton value="Get Players With Page Redirect"
+                             actionListener="#{playersBean.newPlayer()}"
+                             action="index.xhtml?faces-redirect=true;"/>
+
+            <h:commandButton value="Stop Conversation"
+                             style="background-color: #00cc00;"
+                             actionListener="#{playersBean.stopPlayerRnd()}"
+                             action="index.xhtml"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
